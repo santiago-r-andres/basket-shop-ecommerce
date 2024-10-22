@@ -18,8 +18,8 @@ function CartWidget() {
     return (
         <div>
             <IconButton aria-label="cart">
-                <StyledBadge badgeContent={2} color="primary">
-                    <ShoppingCartIcon />
+                <StyledBadge badgeContent={1} color="success">
+                    <ShoppingCartIcon color="success" fontSize="large" />
                 </StyledBadge>
             </IconButton>
         </div>

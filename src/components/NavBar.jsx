@@ -1,30 +1,31 @@
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 import CartWidget from "./CartWidget"
+import {Link} from 'react-router-dom'
+
 function NavBar() {
     return (
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+        <Navbar expand="lg" className="bg-body-tertiary" bg="primary" data-bs-theme="dark">
+            <Container>
+                <Navbar.Brand as={Link} to='/'>
                 <img
-                    src="./src/assets/project-logo.svg"
-                    alt="project/logo"
-                    width="150"
-                    height="auto" />
-                <h1>Basket-Shop</h1>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">HOME</a>
-                        <a class="nav-link" href="#">ZAPATILLAS</a>
-                        <a class="nav-link" href="#">REMERAS</a>
-                        <a class="nav-link" aria-disabled="true">PELOTAS</a>
-                    </div>
-                </div>
-            </div>
-            <CartWidget />
-        </nav>
-    )
+                alt="project/logo"
+                src="./src/assets/project-logo.svg"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"/>Basket-Shop</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link as={Link} to='/category/beauty'>Beauty</Nav.Link>
+                        <Nav.Link as={Link} to='/category/groceries'>Groceries</Nav.Link>
+                        <Nav.Link as={Link} to='/category/fragrances'>Fragrances</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+                <CartWidget />
+            </Container>
+        </Navbar>
+    );
 }
 export default NavBar
