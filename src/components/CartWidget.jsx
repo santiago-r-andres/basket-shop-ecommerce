@@ -1,7 +1,10 @@
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCart } from '../context/cartContext'
+import { Link } from 'react-router-dom'
+import Badge from '@mui/material/Badge'
+import { styled } from '@mui/material/styles'
+import IconButton from '@mui/material/IconButton'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -15,10 +18,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 
 function CartWidget() {
+    const { getQty } = useCart()
+
     return (
         <div>
-            <IconButton aria-label="cart">
-                <StyledBadge badgeContent={1} color="success">
+            <IconButton aria-label="cart" as={Link} to='/cart'>
+                <StyledBadge badgeContent={getQty()} color="success">
                     <ShoppingCartIcon color="success" fontSize="large" />
                 </StyledBadge>
             </IconButton>
